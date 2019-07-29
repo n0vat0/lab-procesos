@@ -1,0 +1,2 @@
+Add new line from parent process.
+Add new line from child process.
