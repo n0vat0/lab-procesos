@@ -23,8 +23,8 @@ Realizar los siguientes ejercicios:
 4. Escriba un programa que llame ```fork()``` y entonces llame alguna forma de ```exec()``` para correr el programa ```/bin/ls```. Intente probar todas las variaciones de la familia de funciones ```exec()``` incluyendo (en linux) ```execl()```, ```execle()```, ```execlp()```, ```execv()```, ```execvp()``` y ```execvpe()```. ¿Por qué piensa usted que existen tantas variaciones para la misma llamada básica?
 5. Escriba ahora un programa que use ```wait()``` para esperar que el proceso hijo finalice su ejecución. ¿Cuál es el valor de retorno de la función ```wait()```? R/ Retorna el pid del proceso acabado en caso de éxito, retorna -1 en caso de error, ¿Qué pasa si usted usa la función ```wait``` en el hijo? R/ El pid del proceso del hijo.
 6. Haga un programa, como el del ejercicio anterior, con una breve modificación, la cual consiste en usar ```waitpid()``` en lugar de ```wait()``. ¿Cuándo podría ser ```waitpid()``` útil? R/ es util cuando requiero controlar el retorno, si quiero manejar excepciones.
-7. Escriba un programa que cree un proceso hijo y entonces en el proceso hijo cierre la salida estandar (```STDOUT FILENO```). ¿Qué pasa si el hijo llama ```printf()``` para imprimir alguna salida después de cerrar el descriptor?
-8. Escriba un programa que cree dos hijos y conecte la salida estándar de un hijo a la entrada estándar del otro usando la llamada a sistema ```pipe()```
+7. Escriba un programa que cree un proceso hijo y entonces en el proceso hijo cierre la salida estandar (```STDOUT FILENO```). ¿Qué pasa si el hijo llama ```printf()``` para imprimir alguna salida después de cerrar el descriptor? No se ejecuta debido a que el proceso ya esta terminado.
+
 
 ## 4. Para la próxima sesión de laboratorio ##
 1. **Entregable**: Pendiente.
