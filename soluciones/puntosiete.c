@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -6,7 +5,6 @@
 
 int main(int argc, char *argv[])
 {
-    int status;
     printf("\n\n");
     int rc = fork();
     if (rc < 0)
@@ -18,14 +16,13 @@ int main(int argc, char *argv[])
     else if (rc == 0)
     {
         // child (new process)
-        sleep(3);
-        wait(&status);
         printf("Hello!\n");
+        close(STDOUT_FILENO);
+        printf("se cerró el proceso estandar\n");
     }
     else
     {
         // parent goes down this path (original process)
-        //wait(NULL);
         printf("Goodbye!\n");
     }
     return 0;

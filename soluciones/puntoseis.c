@@ -6,7 +6,6 @@
 
 int main(int argc, char *argv[])
 {
-    int status;
     printf("\n\n");
     int rc = fork();
     if (rc < 0)
@@ -19,13 +18,12 @@ int main(int argc, char *argv[])
     {
         // child (new process)
         sleep(3);
-        wait(&status);
         printf("Hello!\n");
     }
     else
     {
         // parent goes down this path (original process)
-        //wait(NULL);
+        waitpid();
         printf("Goodbye!\n");
     }
     return 0;

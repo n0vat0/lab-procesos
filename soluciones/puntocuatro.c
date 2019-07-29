@@ -29,11 +29,17 @@ int main(int argc, char *argv[])
             if (execv == 0)
             {
 
-                int execlp == fork();
+                int execlp = fork();
 
                 if (execlp == 0)
                 {
-                    execlp("/bin/ls", "/bin/ls", "-F", "-l", NULL);
+
+                    execlp = fork();
+
+                    if (execlp == 0)
+                    {
+                        execlp("/bin/ls", "/bin/ls", "-F", "-l", NULL);
+                    }
                 }
             }
         }
