@@ -15,7 +15,9 @@ Realizar los siguientes ejercicios:
 
 1. Escriba un programa que llame un ```fork()```. Antes del llamado del ```fork()```, declare una variable de acceso (por ejemplo, ```x```) y asígnele un valor (por ejemplo, ```100```). Responda las siguientes preguntas:
   * ¿Cuál es el valor de la variable en el proceso hijo?
+  El mismo que en el proceso padre
   * ¿Qué sucede con la variable cuando el proceso hijo y el padre cambian el valor de ```x```?
+  La variable toma el valor dado en cada uno de los procesos.
 2. Escriba un programa que abra un archivo (con la llamada ```open()```) y entonces llame a ```fork()```. **Nota**: El siguiente [enlace](https://www.geeksforgeeks.org/input-output-system-calls-c-create-open-close-read-write/) puede ser de utilidad para entender la llamada ```open()```.
   * ¿Pueden el padre y el hijo acceder al file descriptor retornado por ```open()```? 
   * ¿Qué pasa si ellos empiezan a escribir el archivo de manera concurrente, es decir, a la misma vez?
