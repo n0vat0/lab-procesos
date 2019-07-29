@@ -30,7 +30,7 @@ Las llamadas con v en el nombre toman un parámetro de matriz para especificar l
 
 Las llamadas con l en el nombre toman los argumentos del nuevo programa como una lista de argumentos de longitud variable para la función en sí.
 
-Las llamadas con e en el nombre toman un argumento adicional para proporcionar el entorno del nuevo programa; de lo contrario, el programa hereda el entorno del proceso actual.
+Las llamadas con e en el nombre toman un argumento adicional para proporcionar el entorno del nuevo programa; de lo contrario, el programa hereda el entorno del proceso actual. [https://stackoverflow.com/questions/20823371/what-is-the-difference-between-the-functions-of-the-exec-family-of-system-calls]
 
 Las llamadas con p en el nombre buscan la variable de entorno PATH para encontrar el programa si no tiene un directorio (es decir, no contiene un carácter /). De lo contrario, el nombre del programa siempre se trata como una ruta al ejecutable.
 5. Escriba ahora un programa que use ```wait()``` para esperar que el proceso hijo finalice su ejecución. ¿Cuál es el valor de retorno de la función ```wait()```?, ¿Qué pasa si usted usa la función ```wait``` en el hijo?
