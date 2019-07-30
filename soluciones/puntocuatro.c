@@ -1,52 +1,41 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include <sys/wait.h>
+#include <unistd.h>
+#include <string.h>
 
-int main(int argc, char *argv[])
+int main()
 {
-    printf("\n\n");
-    int rc = fork();
 
-    if (rc < 0)
+    if (fork() == 0)
     {
-        // fork failed; exit
-        fprintf(stderr, "fork failed\n");
-        exit(1);
-    }
-    else if (rc == 0)
-    {
-        // child (new process)
-        printf("Hello next you shower all directories!\n\n");
+        execle( "/bin/ls", "ls", "-l", "/usr/include", 0 );
 
-        int exec = fork();
-
-        if (exec == 0)
+        if (fork() == 0)
         {
+            execl( "/bin/ls", "ls", "-l", "/usr/include", 0 );
 
-            int execv = fork();
-
-            if (execv == 0)
+            if (fork() == 0)
+            {
+                execvp( "/bin/ls", 0 );
+            }
+            else
             {
 
-                int execlp = fork();
-
-                if (execlp == 0)
-                {
-
-                    execlp = fork();
-
-                    if (execlp == 0)
-                    {
-                        execlp("/bin/ls", "/bin/ls", "-F", "-l", NULL);
-                    }
-                }
             }
         }
-    }
+        else
+        {
 
-    wait(2);
-    printf("Goodbye!\n");
+            execv( "/bin/ls", 0 );
+        }
+    }
+    else
+    {
+        execlp( "/bin/ls", "ls", "-l", "/usr/include", 0 );
+    }
 
     return 0;
 }
